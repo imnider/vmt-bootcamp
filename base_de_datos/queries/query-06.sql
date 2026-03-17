@@ -44,4 +44,5 @@ FROM SalesLT.SalesOrderDetail;
 
 -- Uso de TOP
 SELECT TOP 10 ProductID, Name
-FROM SalesLT.Product;
+FROM SalesLT.Product
+ORDER BY ProductID ASC
