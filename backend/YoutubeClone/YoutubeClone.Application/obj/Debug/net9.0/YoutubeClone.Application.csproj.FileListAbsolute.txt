@@ -1,0 +1,16 @@
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\bin\Debug\net9.0\YoutubeClone.Application.deps.json
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\bin\Debug\net9.0\YoutubeClone.Application.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\bin\Debug\net9.0\YoutubeClone.Application.pdb
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\bin\Debug\net9.0\YoutubeClone.Shared.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\bin\Debug\net9.0\YoutubeClone.Shared.pdb
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.AssemblyInfo.cs
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.sourcelink.json
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeC.C7479D7F.Up2Date
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\refint\YoutubeClone.Application.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\YoutubeClone.Application.pdb
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\YoutubeClone\YoutubeClone.Application\obj\Debug\net9.0\ref\YoutubeClone.Application.dll

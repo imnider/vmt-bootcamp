@@ -18,12 +18,10 @@ namespace YoutubeClone.Application.Models.Request.Users
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
         [MaxLength(60, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         [MinLength(10, ErrorMessage = ValidationConstants.MIN_LENGHT)]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = ValidationConstants.EMAIL)]
         public string Email { get; set; } = null!;
 
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
-        [MaxLength(60, ErrorMessage = ValidationConstants.MAX_LENGHT)]
-        [MinLength(10, ErrorMessage = ValidationConstants.MIN_LENGHT)]
         public DateOnly Bithday { get; set; }
 
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
