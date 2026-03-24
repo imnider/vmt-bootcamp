@@ -33,3 +33,7 @@ C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\Talen
 C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\obj\Debug\net9.0\TalentInsights.WebApp.pdb
 C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\obj\Debug\net9.0\TalentInsights.WebApp.genruntimeconfig.cache
 C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\obj\Debug\net9.0\ref\TalentInsights.WebApp.dll
+C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\bin\Debug\net9.0\TalentInsights.Application.dll
+C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\bin\Debug\net9.0\TalentInsights.Shared.dll
+C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\bin\Debug\net9.0\TalentInsights.Application.pdb
+C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.WebApp\bin\Debug\net9.0\TalentInsights.Shared.pdb

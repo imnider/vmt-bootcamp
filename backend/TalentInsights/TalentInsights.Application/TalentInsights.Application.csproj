@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TalentInsights.Shared\TalentInsights.Shared.csproj" />
-    <ProjectReference Include="..\TalentInsights.WebApp\TalentInsights.WebApp.csproj" />
   </ItemGroup>
 
 </Project>

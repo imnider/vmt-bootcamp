@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TalentInsights.Application.Models.Request.Collaborator;
+using TalentInsigts.Application.Models.Request.Collaborator;
 
 namespace TalentInsights.WebApp.Controllers
 {
@@ -7,33 +9,33 @@ namespace TalentInsights.WebApp.Controllers
     public class CollaboratorsController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create([FromBody] CreateCollaboratorRequest model)
         {
-            return Ok("Usuario creado");
+            return Ok($"Usuario {model.FullName} creado!");
         }
 
-        [HttpPost("{id:guid}")]
-        public async Task<IActionResult> GetById(Guid id)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update([FromBody] UpdateCollaboratorRequest model, Guid id)
         {
-            return Ok($"{id}");
+            return Ok($"Usuario actualizado: {id} - {model.FullName}");
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> GetAll()
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
         {
-            return Ok("Todos los usuarios");
+            return Ok($"Usuario eliminado: {id}");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Update()
+        [HttpPatch("change-password/{id:guid}")]
+        public async Task<IActionResult> ChangePassword(Guid id, [FromBody] ChangePasswordCollaboratorRequest model)
         {
-            return Ok("Usuario actualizado");
+            return Ok($"Contraseña cambiada: {model.OldPassword} - {model.NewPassword}");
         }
 
-        [HttpPost("change-password")]
-        public async Task<IActionResult> ChangePassword()
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllCollaboratorRequest model)
         {
-            return Ok("Contraeña cambiada");
-        }*/
+            return Ok($"Todos los usuarios: limit: {model.Limit}, offset: {model.Offset}, gitlab: {model.GitlabProfile}");
+        }
     }
 }

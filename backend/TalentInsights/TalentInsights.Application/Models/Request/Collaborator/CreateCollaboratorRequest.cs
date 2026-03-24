@@ -5,12 +5,16 @@ namespace TalentInsights.Application.Models.Request.Collaborator
 {
     public class CreateCollaboratorRequest
     {
-        [Required]
+        [Required(ErrorMessage = ValidationConstants.REQUIRED)]
         [MaxLength(150, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         [MinLength(10, ErrorMessage = ValidationConstants.MIN_LENGHT)]
-        public required string FullName { get; set; }
+        public string FullName { get; set; } = null!;
+        [MaxLength(255, ErrorMessage = ValidationConstants.MAX_LENGHT)]
+        [MinLength(10, ErrorMessage = ValidationConstants.MIN_LENGHT)]
         public string? GitlabProfile { get; set; }
-        [Required]
-        public required string Position { get; set; }
+        [Required(ErrorMessage = ValidationConstants.REQUIRED)]
+        [MaxLength(100, ErrorMessage = ValidationConstants.MAX_LENGHT)]
+        [MinLength(5, ErrorMessage = ValidationConstants.MIN_LENGHT)]
+        public string Position { get; set; } = null!;
     }
 }

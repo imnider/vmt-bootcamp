@@ -13,7 +13,4 @@
     <SourceRoot Include="C:\Users\viamatica\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets Condition=" '$(PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets)' == '' ">C:\Users\viamatica\.nuget\packages\microsoft.visualstudio.azure.containers.tools.targets\1.23.0</PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets>
-  </PropertyGroup>
 </Project>
