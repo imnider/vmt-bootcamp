@@ -12,16 +12,16 @@ El Backend de este Bootcamp es desarrollado con .NET
 
 ### Crear un proyecto ASP.NET Core Web App
 - Crear una Librería como Application.
-	- Crear una carpeta Models dentro de Application.
+	- Crear las carpetas Helpers, Interfaces, Models y Services dentro de Application.
 	- Crear las carpetas DTOs, Requests y Responses dentro de Models.
 - Crear una Librería como Shared.
-	- Crear la carpeta Constants dentro de Shared.
-- Seguir este flujo:
-	1. Dto
-	2. Requests
-	3. IService
-	4. Service
-	5. Controller
+	- Crear las carpetas Constants y Helpers dentro de Shared.
+### Flujo recomendado
+1. Dto
+2. Requests
+3. IService
+4. Service
+5. Controller
 
 ## Enlaces Útiles
 - https://http.cat
