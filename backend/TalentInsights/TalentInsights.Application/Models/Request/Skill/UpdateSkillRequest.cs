@@ -3,11 +3,10 @@ using TalentInsights.Shared.Constants;
 
 namespace TalentInsights.Application.Models.Request.Skill
 {
-    public class CreateSkillRequest
+    public class UpdateSkillRequest
     {
-        [Required(ErrorMessage = ValidationConstants.REQUIRED)]
         [MaxLength(100, ErrorMessage = ValidationConstants.MAX_LENGHT)]
-        public string Name { get; set; } = null!;
+        public string? Name { get; set; }
 
         [MaxLength(100, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         public string? Category { get; set; }

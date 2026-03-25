@@ -10,3 +10,15 @@ C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\Talen
 C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\refint\TalentInsights.Shared.dll
 C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.pdb
 C:\Users\viamatica\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\ref\TalentInsights.Shared.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\bin\Debug\net9.0\TalentInsights.Shared.deps.json
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\bin\Debug\net9.0\TalentInsights.Shared.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\bin\Debug\net9.0\TalentInsights.Shared.pdb
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.AssemblyInfo.cs
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.sourcelink.json
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\refint\TalentInsights.Shared.dll
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\TalentInsights.Shared.pdb
+C:\Users\Administrator\Documents\Documents\workspace\vmt-bootcamp\backend\TalentInsights\TalentInsights.Shared\obj\Debug\net9.0\ref\TalentInsights.Shared.dll

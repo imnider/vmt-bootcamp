@@ -35,11 +35,11 @@ namespace TalentInsights.WebApp.Controllers
             return Ok($"Contraseña cambiada: {model.OldPassword} - {model.NewPassword}");
         }
 
-        /*[HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] GetAllCollaboratorRequest model)
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetAll(Guid id)
         {
-            return Ok(ResponseHelper.Create($"Todos los usuarios: limit: {model.Limit}, offset: {model.Offset}, gitlab: {model.GitlabProfile}"));
-        }*/
+            return Ok(ResponseHelper.Create(id));
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] GetAllCollaboratorRequest model)
