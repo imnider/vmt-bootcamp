@@ -1,39 +1,39 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using YoutubeClone.Application.Interfaces.Services;
 using YoutubeClone.Application.Models.Request.Users;
 
 namespace YoutubeClone.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController(IUserService userService) : ControllerBase
     {
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateUserRequest model)
         {
-            return Ok($"¡Usuario {model.Username} creado exitosamente!");
-        }
-
-        [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Update([FromQuery] UpdateUserRequest model, Guid id)
-        {
-            return Ok($"¡Usuario {model.DisplayName} actualizado con éxito!\n" +
-                $"ID: {id}");
+            var rsp = userService.Create(model);
+            return Ok(rsp);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromBody] GetAllUsersRequest model)
+        public async Task<IActionResult> GetAll()
         {
-            return Ok($"Todos los usuaios\n" +
-                $"limit: {model.Limit}\n" +
-                $"offset {model.Offset}\n" +
-                $"Username: {model.Username}\n" +
-                $"DisplayName: {model.DisplayName}");
+            var rsp = userService.GetAll();
+            return Ok(rsp);
+        }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var rsp = userService.GetById(id);
+            return Ok(rsp);
         }
 
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            return Ok($"Usuario eliminado: {id}");
+            var rsp = userService.Delete(id);
+            return Ok(rsp);
         }
     }
 }

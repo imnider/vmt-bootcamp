@@ -8,7 +8,7 @@ namespace YoutubeClone.Application.Models.Request.Users
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
         [MaxLength(30, ErrorMessage = ValidationConstants.MAX_LENGHT)]
         [MinLength(5, ErrorMessage = ValidationConstants.MIN_LENGHT)]
-        public string Username { get; set; } = null!;
+        public string UserName { get; set; } = null!;
 
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
         [MaxLength(50, ErrorMessage = ValidationConstants.MAX_LENGHT)]
@@ -22,7 +22,7 @@ namespace YoutubeClone.Application.Models.Request.Users
         public string Email { get; set; } = null!;
 
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
-        public DateOnly Bithday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [Required(ErrorMessage = ValidationConstants.REQUIRED)]
         [MaxLength(30, ErrorMessage = ValidationConstants.MAX_LENGHT)]
