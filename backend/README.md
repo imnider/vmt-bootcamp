@@ -38,7 +38,6 @@ El Backend de este Bootcamp es desarrollado con .NET
 	- SqlServer
 		- Context
 		- Entities
-		- Repositories
 - Exceptions
 - Interfaces
 	- Repositories
@@ -66,7 +65,7 @@ El Backend de este Bootcamp es desarrollado con .NET
 	- Microsoft.EntityFrameworkCore.Design
 
 ### Comandos en la Terminal
-- Scaffolding: `dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;Database=YoutubeClone;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --project YoutubeClone.Domain --startup-project YoutubeClone.WebApp --context-dir Database/SqlServer/Context --output-dir Database/SqlServer/Entities`
+- Scaffolding: `dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;Database=YoutubeClone;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --project YoutubeClone.Domain --startup-project YoutubeClone.WebApp --context-dir Database/SqlServer/Context --output-dir Database/SqlServer/Entities --nobuild --force`
 
 ### Archivos (Orden sugerido)
 1. Cache.cs - `Shared/` (Solo para caché)
@@ -75,14 +74,16 @@ El Backend de este Bootcamp es desarrollado con .NET
 4. ResponseConstants.cs - `Shared/Constants/`
 5. GenericResponse.cs - `Application/Models/Responses/`
 6. ResponsesHelper.cs - `Application/Helpers/`
-7. BaseRequest.cs `Application/Requests`
-8. DTOs - `Application/Models/DTOs/`
-9. Requests - `Application/Models/Requests/EntityName/`
-10. IServices - `Application/Interface/Services/`
-11. Services - `Application/Services/`
-12. Exceptions - `Domain/Exceptions`
-13. ErrorHandlerMiddleware.cs `WebApp/Middlewares`
-14. Controllers - `WebApp/Controllers/`
+7. BaseRequest.cs - `Application/Requests/`
+8. Exceptions - `Domain/Exceptions/`
+9. DTOs - `Application/Models/DTOs/`
+10. Requests - `Application/Models/Requests/EntityName/`
+11. IRepositories - `Domain/Interfaces/Repositories/`
+12. Repositories `Infrastructure/Persistence/SqlServer/Repositories/`
+13. IServices - `Application/Interface/Services/`
+14. Services - `Application/Services/`
+15. ErrorHandlerMiddleware.cs - `WebApp/Middlewares/`
+16. Controllers - `WebApp/Controllers/`
 
 ## Enlaces Útiles
 - https://http.cat
