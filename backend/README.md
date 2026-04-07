@@ -63,12 +63,18 @@ El Backend de este Bootcamp es desarrollado con .NET
 	- Microsoft.EntityFrameworkCore.Tools
 - Capa WebApp
 	- Microsoft.EntityFrameworkCore.Design
+	- Serilog
+	- Serilog.Extensions.Hosting
+	- Serilog.Sinks.File
+	- Serilog.Sinks.Console
+	- Serilog.Sinks.MSSqlServer
 
 ### Comandos en la Terminal
-- Scaffolding: `dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;Database=YoutubeClone;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --project YoutubeClone.Domain --startup-project YoutubeClone.WebApp --context-dir Database/SqlServer/Context --output-dir Database/SqlServer/Entities --nobuild --force`
+- Scaffolding: `dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;Database=YoutubeClone;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --project YoutubeClone.Domain --startup-project YoutubeClone.WebApp --context-dir Database/SqlServer/Context --output-dir Database/SqlServer/Entities --no-build --force
 
 ### Archivos (Orden sugerido)
 1. Cache.cs - `Shared/` (Solo para caché)
+2. ServiceCollectionExtension.cs - `WebApp/Extensions/`
 2. DataTimeHelper.cs - `Shared/Helpers/`
 3. ValidationConstants.cs - `Shared/Constants/`
 4. ResponseConstants.cs - `Shared/Constants/`
@@ -90,4 +96,5 @@ El Backend de este Bootcamp es desarrollado con .NET
 - https://refactoring.guru/design-patterns
 - https://www.uuidgenerator.net
 - https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
+- https://serilog.net
 - https://github.com/alenj0x1/net-ef
