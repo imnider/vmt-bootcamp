@@ -1,9 +1,11 @@
-﻿namespace TalentInsights.Shared.Constants
+namespace TalentInsights.Shared.Constants
 {
-    public static class ValidationConstants
-    {
-        public const string MAX_LENGHT = "El máximo de caracteres de {0} es de {1}";
-        public const string MIN_LENGHT = "El mínimo de caracteres de {0} es de {1}";
-        public const string REQUIRED = "La propiedad es requerida {0}";
-    }
+	public static class ValidationConstants
+	{
+		public const string MAX_LENGTH = "El máximo de caracteres de {0} es {1}";
+		public const string MIN_LENGTH = "El mínimo de caracteres de {0} es {1}";
+		public const string REQUIRED = "La propiedad {0} es requerida";
+
+		public const string VALIDATION_MESSAGE = "Una o más validaciones necesitan atención";
+	}
 }
