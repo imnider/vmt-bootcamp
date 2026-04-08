@@ -7,7 +7,7 @@ namespace TalentInsights.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrador")]
+    [Authorize(Roles = "Administrator")]
     public class CollaboratorsController(ICollaboratorService collaboratorService) : ControllerBase
     {
         [HttpPost]
@@ -18,7 +18,7 @@ namespace TalentInsights.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] FilterColaboratorRequest model)
+        public async Task<IActionResult> GetAll([FromQuery] FilterColaboratorRequest model, [FromHeader] string authorization)
         {
             var collaboratorId = User.FindFirst("CollaboratorId")?.Value;
             var srv = collaboratorService.Get(model);

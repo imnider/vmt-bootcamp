@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using TalentInsights.Application.Helpers;
 using TalentInsights.Application.Interfaces;
+using TalentInsights.Application.Interfaces.Services;
 using TalentInsights.Application.Models.Requests.Auth;
 using TalentInsights.Application.Models.Responses;
 using TalentInsights.Domain.Exceptions;
@@ -9,7 +10,7 @@ using TalentInsights.Shared;
 
 namespace TalentInsights.Application.Services
 {
-    public class AuthServices(ICollaboratorRepository collaboratorRepository, IConfiguration configuration) : IAuthService
+    public class AuthServices(ICollaboratorRepository collaboratorRepository, IConfiguration configuration, ICacheService cacheService) : IAuthService
     {
         public async Task<GenericResponse<string>> Login(LoginAuthRequest model)
         {
@@ -22,7 +23,9 @@ namespace TalentInsights.Application.Services
                 throw new BadRequestException("Usuario o contraseña incorrectos");
             }
 
-            var token = TokenHelper.Create(collaborator, configuration);
+            var token = TokenHelper.Create(collaborator, configuration, cacheService);
+
+            cacheService.Create($"auth:tokens:{token}", TimeSpan.FromMinutes(5), token);
             return ResponseHelper.Create(token);
         }
     }

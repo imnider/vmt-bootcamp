@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using System.Text;
 using TalentInsights.Application.Helpers;
 using TalentInsights.Application.Interfaces;
 using TalentInsights.Application.Interfaces.Services;
@@ -26,6 +24,7 @@ namespace TalentInsights.WebApi.Extensions
         {
             services.AddScoped<ICollaboratorService, CollaboratorService>();
             services.AddScoped<IAuthService, AuthServices>();
+            services.AddScoped<ICacheService, CacheService>();
         }
 
         /// <summary>
@@ -74,6 +73,8 @@ namespace TalentInsights.WebApi.Extensions
 
             services.AddAuth(configuration);
 
+            services.AddCache();
+
             await Initialize(services);
         }
 
@@ -121,27 +122,17 @@ namespace TalentInsights.WebApi.Extensions
 
             }).AddJwtBearer(builder =>
             {
-                var issuer = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_ISSUER)
-                    ?? configuration[ConfigurationConstants.JWT_ISSUER]
-                    ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_ISSUER));
-
-                var audience = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_AUDIENCE)
-                    ?? configuration[ConfigurationConstants.JWT_AUDIENCE]
-                    ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_AUDIENCE));
-
-                var privateKey = Environment.GetEnvironmentVariable(ConfigurationConstants.JWT_PRIVATE_KEY)
-                    ?? configuration[ConfigurationConstants.JWT_PRIVATE_KEY]
-                    ?? throw new Exception(ResponseConstants.ConfigurationPropertyNotFound(ConfigurationConstants.JWT_PRIVATE_KEY));
+                var tokenConfiguration = TokenHelper.Configuration(configuration);
 
                 builder.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                 {
                     ValidateIssuer = true,
-                    ValidIssuer = issuer,
+                    ValidIssuer = tokenConfiguration.Issuer,
                     ValidateAudience = true,
-                    ValidAudience = audience,
+                    ValidAudience = tokenConfiguration.Audience,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(privateKey)),
+                    IssuerSigningKey = tokenConfiguration.SecurityKey,
                     ClockSkew = TimeSpan.Zero
                 };
                 builder.Events = new JwtBearerEvents
@@ -154,6 +145,11 @@ namespace TalentInsights.WebApi.Extensions
             });
 
             services.AddAuthorization();
+        }
+
+        public static void AddCache(this IServiceCollection services)
+        {
+            services.AddMemoryCache();
         }
     }
 }
