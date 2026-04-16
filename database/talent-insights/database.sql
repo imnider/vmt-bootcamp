@@ -18,7 +18,7 @@ GO
 -- ============================================================
 CREATE TABLE Collaborators (
     Id            UNIQUEIDENTIFIER   NOT NULL DEFAULT NEWID(),
-    Email         NVARCHAR(100)      NOT NULL,
+    Email         NVARCHAR(100)      NOT NULL UNIQUE,
     FullName      NVARCHAR(150)      NOT NULL,
     GitlabProfile NVARCHAR(255)      NULL,
     Position      NVARCHAR(100)      NOT NULL,
