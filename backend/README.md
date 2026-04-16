@@ -70,7 +70,10 @@ El Backend de este Bootcamp es desarrollado con .NET
 	- Serilog.Sinks.MSSqlServer
 
 ### Comandos en la Terminal
-- Scaffolding: `dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;Database=YoutubeClone;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --project YoutubeClone.Domain --startup-project YoutubeClone.WebApp --context-dir Database/SqlServer/Context --output-dir Database/SqlServer/Entities --no-build --force
+- Scaffolding:
+```bash
+dotnet ef dbcontext scaffold "Server=localhost,1433;User=sa;Password=Admin1234@;Database=TalentInsights;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --project TalentInsights.Domain --startup-project TalentInsights.WebApi --context-dir Database/SqlServer/Context --output-dir Database/SqlServer/Entities --no-build --force --no-onconfiguring
+```
 
 ### Archivos (Orden sugerido)
 1. Cache.cs - `Shared/` (Solo para caché)
