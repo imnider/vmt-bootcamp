@@ -1,0 +1,37 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+header{
+    background-color: rgb(32, 32, 32);
+}
+
+.header-list{
+    display: flex;
+    align-items: center;
+}
+
+.header-item {
+    display: flex;
+    color: white;
+    padding: 20px;
+}
+
+.header-button {
+    border: none;
+    padding: 10px;
+    height: 40px;
+    background-color: rgb(127, 255, 212);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.gray-text {
+    color: gray;
+}
+
+.green-text {
+    color: green;
+}

@@ -1,0 +1,10 @@
+<footer>
+    <ul class = "footer-list">
+        <button (click)="generateCopyright()" class = "footer-button"> Copyright </button>
+    </ul>
+    <ul class = "footer-list">
+        @if(copyrightStatus){
+            <li class = "footer-item"> {{copyrightMessage}} </li>
+        }
+    </ul>
+</footer>

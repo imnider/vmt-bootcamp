@@ -1,0 +1,27 @@
+<input [(ngModel)]="busqueda" />
+<span> {{busqueda}}</span>
+<ul>
+    @for(materia of materias; track $index){
+        <li [class.aprobada] = "materia.aprobada"
+        [class.no-aprobada] = "!materia.aprobada">
+            {{materia.nombre}}: {{materia.creditos}}
+        </li>
+    } @empty {
+        <li> No hay materias registradas </li>
+    }
+</ul>
+<div>
+    @if(creditosPorcentaje < 40){
+        <progress style="accent-color: red;" max="120" [value]="creditos"></progress>
+    }
+    @if(creditosPorcentaje >= 40 && creditosPorcentaje < 70){
+        <progress style="accent-color: orange;" max="120" [value]="creditos"></progress>
+    }
+    @if(creditosPorcentaje >= 70){
+        <progress style="accent-color: green;" max="120" [value]="creditos"></progress>
+    }
+    
+    Progreso: {{creditos}}/120
+</div>
+<button (click)="quitarProgreso()">-10</button>
+<button (click)="agregarProgreso()">+10</button>
