@@ -1,0 +1,82 @@
+button {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.passenger-header {
+    background-color: rgb(47, 48, 48);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.passenger-header h1 {
+    color: white;
+}
+
+.passenger-container {
+    padding: 2% 5%;
+    background-color: white;
+    margin: 0 10%;
+}
+
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    flex: 1 1 300px;
+    max-width: 300px;
+    border: 1px solid #7c7c7c;
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #eff5f8;
+}
+
+.cart-item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-item-header img {
+    border-radius: 6px;
+}
+
+.cart-button-container {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    margin: 0 25%;
+}
+
+.button-post {
+    background-color: #31abf1;
+    color: white;
+    border-color: white;
+    padding: 10px;
+}
+
+.button-put {
+    background-color: white;
+    color: #31abf1;
+    border-color: #31abf1;
+    padding: 5px;
+}
+
+.button-delete {
+    background-color: white;
+    color: #f15454;
+    border-color: #f15454;
+    padding: 5px;
+}

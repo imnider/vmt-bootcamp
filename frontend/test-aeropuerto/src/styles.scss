@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Hack';
+  src: url('app/assets/fonts/Hack.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Hack', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: #d8d8d8;
+    margin: 0;
+}

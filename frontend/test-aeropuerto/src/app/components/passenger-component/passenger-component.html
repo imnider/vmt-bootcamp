@@ -1,0 +1,38 @@
+<div class = "passenger-header">
+    <h1> PASSENGERS </h1>
+    <button (click)="agregarPasajero()" class = "button-post"> Agregar pasajero </button>
+</div>
+<div class = "passenger-container">
+    @if(loading){
+        <div>Cargando...</div>
+    }
+
+    @if(error){
+        <div>{{error}}</div>
+    }
+
+    @if(!loading && !error){
+        <div class = "cart-container">
+            @for(passenger of passengers; track passenger.id){
+                <div class = "cart-item">
+                    <div class = "cart-item-header">
+                        <img [src]="passenger.avatar" width="60px">
+                        <div>Id: {{passenger.id}}</div>
+                    </div>
+                    <div><strong>Name:</strong> {{passenger.name}}</div>
+                    <div><strong>Email:</strong> {{passenger.email}}</div>
+                    <div><strong>Nationality:</strong> {{passenger.nationality}}</div>
+                    <div><strong>Created At:</strong> {{passenger.createdAt}}</div>
+                    <div class = "cart-button-container">
+                        <button class="button-delete" (click)="eliminarPasajero(passenger.id)">
+                            Eliminar
+                        </button>
+                        <button class="button-put" (click)="editarPasajero(passenger.id)">
+                            Editar
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+<div class = "flight-header">
+    <h1> FLIGHTS </h1>
+    <button (click)="agregarVuelo()" class = "button-post"> Agregar vuelo </button>
+</div>
+<div class = "flight-container">
+    @if(loading){
+        <div>Cargando...</div>
+    }
+
+    @if(error){
+        <div>{{error}}</div>
+    }
+
+    @if(!loading && !error){
+        <div class = "cart-container">
+            @for(flight of flights; track flight.id){
+                <div class = "cart-item">
+                    <div><strong>Id:</strong> {{flight.id}}</div>
+                    <div><strong>Origin:</strong> {{flight.origin}}</div>
+                    <div><strong>Destination:</strong> {{flight.destination}}</div>
+                    <div><strong>Price:</strong> {{flight.price}}</div>
+                    <div><strong>Departure:</strong> {{flight.departure}}</div>
+                    <div><strong>Flight Number:</strong> {{flight.flightNumer}}</div>
+                    <div><strong>Created At:</strong> {{flight.createdAt}}</div>
+                    <div class = "cart-button-container">
+                        <button class="button-delete" (click)="eliminarVuelo(flight.id)">
+                            Eliminar
+                        </button>
+                        <button class="button-put" (click)="editarVuelo(flight.id)">
+                            Editar
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
