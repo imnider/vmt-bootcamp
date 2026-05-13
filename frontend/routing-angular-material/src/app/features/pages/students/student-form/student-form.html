@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="guardar()">
+    <ol>
+        <li>
+            <mat-form-field>
+            <mat-label>Nombre: </mat-label>
+            <input matInput formControlName="name" placeholder="Nombre"/>
+            </mat-form-field>
+        </li>
+        <li>
+            <mat-form-field>
+            <mat-label>Correo: </mat-label>
+            <input matInput formControlName="email" placeholder="Correo" />
+            </mat-form-field>
+        </li>
+        <li>
+            <mat-form-field>
+            <mat-label>Curso Id: </mat-label>
+            <input matInput formControlName="courseId" placeholder="Curso Id" />
+            </mat-form-field>
+        </li>
+        <li>
+            <button matButton="elevated" >
+                @if(isEdit())
+                {Editar}
+                @else
+                {Crear}
+            </button>
+        </li>
+        </ol>
+</form>

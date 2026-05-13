@@ -10,6 +10,7 @@ import { Student } from '../../../interfaces/student.interface';
 })
 export class StudentDetailComponent {
   private studentService = inject(Students);
+  private studentSelected: Student = {} as Student;
   error = '';
 
   ngOnInit(){
@@ -19,7 +20,7 @@ export class StudentDetailComponent {
   cargarDetalle(id: string){
     this.studentService.getById(id).subscribe({
       next: (data) => {
-        
+        this.studentSelected = data;
       },
       error: () => {
         this.error = `Error al cargar el estudiante con id: ${id}`;
