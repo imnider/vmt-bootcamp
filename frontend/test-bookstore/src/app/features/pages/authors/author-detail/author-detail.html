@@ -1,0 +1,75 @@
+<div class="page-container">
+  @if (loading()) {
+    <div class="center-loader">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  }
+
+  @if (error()) {
+    <mat-card appearance="outlined" class="error-card">
+      <mat-card-content class="error-content">
+        <mat-icon class="error-icon">error</mat-icon>
+
+        <h2>Algo salió mal</h2>
+
+        <p>{{ error() }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @if (!loading() && !error()) {
+    <mat-card appearance="outlined" class="detail-card">
+      <div class="header">
+        <div class="avatar">
+          <mat-icon>person</mat-icon>
+        </div>
+
+        <div>
+          <h1>{{ author()?.name }}</h1>
+          <p>{{ author()?.country }}</p>
+        </div>
+      </div>
+
+      <mat-card-content class="content">
+        <div class="info-row">
+          <mat-icon class="icon-bagde">badge</mat-icon>
+          <div>
+            <span class="label">ID del autor</span>
+            <span class="value">{{ author()?.id }}</span>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <mat-icon class="icon-public">public</mat-icon>
+          <div>
+            <span class="label">País</span>
+            <span class="value">{{ author()?.country }}</span>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <mat-icon class="icon-phone">phone</mat-icon>
+          <div>
+            <span class="label">Número de teléfono</span>
+            <span class="value">{{ author()?.phoneNumber }}</span>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <mat-icon class="icon-calendar">calendar_today</mat-icon>
+          <div>
+            <span class="label">Fecha de creación</span>
+            <span class="value">{{ author()?.createdAt }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions class="actions">
+        <button mat-flat-button color="primary" (click)="volver()">
+          <mat-icon>arrow_back</mat-icon>
+          Volver
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  }
+</div>

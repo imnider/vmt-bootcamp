@@ -1,0 +1,23 @@
+@if (loading()) {
+  <mat-spinner></mat-spinner>
+}
+
+@if (errorMessage()) {
+  <div>
+    {{ errorMessage() }}
+  </div>
+}
+
+@if (books()) {
+  <mat-card>
+    <h2>{{ books()[0]?.name }}</h2>
+
+    <p>{{ books()[0]?.author }}</p>
+
+    <p>{{ books()[0]?.publishedAt }}</p>
+
+    <p>{{ books()[0]?.createdAt }}</p>
+
+    <button mat-raised-button routerLink="/books">Volver</button>
+  </mat-card>
+}

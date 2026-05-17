@@ -1,0 +1,31 @@
+<nav class="sidebar">
+  <div class="brand">
+    <i class="fas fa-book-open"></i>
+    <span>Escribiendo Sueños</span>
+  </div>
+
+  <ul class="nav-links">
+    <li>
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="fas fa-house"></i>
+        <span>Inicio</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/books" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
+        <i class="fas fa-book"></i>
+        <span>Libros</span>
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/authors"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+      >
+        <i class="fas fa-user-pen"></i>
+        <span>Autores</span>
+      </a>
+    </li>
+  </ul>
+</nav>

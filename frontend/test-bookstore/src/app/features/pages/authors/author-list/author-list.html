@@ -1,0 +1,86 @@
+<div class="page">
+
+  <div class="header">
+    <h1>Autores</h1>
+
+    <button mat-fab extended color="primary" (click)="abrirFormulario()">
+      <mat-icon>add</mat-icon>
+      Agregar autor
+    </button>
+  </div>
+
+  <div
+    class="search-bar"
+    [class.focused]="searchFocused"
+  >
+    <mat-icon class="search-icon">search</mat-icon>
+
+    <input
+      [(ngModel)]="searchQuery"
+      (focus)="searchFocused = true"
+      (blur)="searchFocused = false"
+      placeholder="Buscar por nombre..."
+      class="search-input"
+    />
+
+    @if (searchQuery) {
+      <button mat-icon-button class="clear-btn" (click)="searchQuery = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+  </div>
+
+  @if (loading()) {
+    <div class="center">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  }
+
+  @if (error()) {
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <p>{{ error() }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @if (!loading() && !error()) {
+    <div class="grid">
+      @for (
+        author of authorList().filter(a =>
+          a.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        track author.id
+      ) {
+        <mat-card appearance="outlined">
+
+          <mat-card-header>
+            <mat-icon mat-card-avatar>person</mat-icon>
+            <mat-card-title>{{ author.name }}</mat-card-title>
+            <mat-card-subtitle>{{ author.country }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p><strong>Fecha de creación:</strong> {{ author.createdAt }}</p>
+            <p><strong>Teléfono:</strong> {{ author.phoneNumber }}</p>
+          </mat-card-content>
+
+          <mat-card-actions class="card-actions">
+            <button mat-icon-button (click)="verDetalle(author.id)">
+              <mat-icon class="icon-view">visibility</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="abrirFormulario(author)">
+              <mat-icon class="icon-edit">edit</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="confirmDelete(author)">
+              <mat-icon class="icon-delete">delete_forever</mat-icon>
+            </button>
+          </mat-card-actions>
+
+        </mat-card>
+      }
+    </div>
+  }
+</div>
