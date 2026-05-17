@@ -57,23 +57,19 @@
 
       <mat-form-field appearance="outline">
         <mat-label>País</mat-label>
-        <input matInput formControlName="country" placeholder="País" />
+
+        <mat-select formControlName="country">
+          @for (country of countries; track country) {
+            <mat-option [value]="country">
+              {{ country }}
+            </mat-option>
+          }
+        </mat-select>
+
         <mat-icon matSuffix>public</mat-icon>
 
         @if (form.controls.country.hasError('required')) {
           <mat-error>El país es obligatorio</mat-error>
-        }
-
-        @if (form.controls.country.hasError('minlength')) {
-          <mat-error>El país debe tener al menos 3 caracteres</mat-error>
-        }
-
-        @if (form.controls.country.hasError('maxlength')) {
-          <mat-error>El país no puede exceder 70 caracteres</mat-error>
-        }
-
-        @if (form.controls.country.hasError('pattern')) {
-          <mat-error>El país contiene caracteres no válidos</mat-error>
         }
       </mat-form-field>
 

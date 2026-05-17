@@ -11,6 +11,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MONTHS } from '../../../../shared/constants/months';
+import { IAuthor } from '../../../interfaces/IAuthor';
+import { AuthorsService } from '../../../services/authors-service/authors-service';
 
 @Component({
   selector: 'app-form-book-component',
@@ -22,6 +26,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
     MatCardModule,
     MatIconModule,
     MatProgressSpinner,
+    MatSelectModule,
   ],
   templateUrl: './form-book-component.html',
   styleUrl: './form-book-component.scss',
@@ -32,10 +37,36 @@ export class FormBookComponent {
   //para cargar el formulario con los
   //datos del libro a editar
   ngOnInit() {
+    this.cargarAutores();
     if (this.book) {
       this.isEdit.set(true);
       this.form.patchValue(this.book);
     }
+  }
+  
+  months = MONTHS;
+
+  // varibales de validación diferentes solo para el combo box
+  authorsLoading = signal(false);
+  authorsError = signal<string | null>(null);
+  authors = signal<IAuthor[]>([]);
+  private authorService = inject(AuthorsService);
+
+  cargarAutores() {
+    this.authorsLoading.set(true);
+    this.authorsError.set(null);
+
+    this.authorService.getAll().subscribe({
+      next: (data) => {
+        this.authors.set(data);
+        this.authorsLoading.set(false);
+      },
+      error: () => {
+        this.authors.set([]);
+        this.authorsError.set('No se pudieron cargar los autores');
+        this.authorsLoading.set(false);
+      },
+    });
   }
 
   //incorporacion del servicio de libros
@@ -72,22 +103,12 @@ export class FormBookComponent {
 
     author: new FormControl('', {
       nonNullable: true,
-      validators: [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(60),
-        Validators.pattern(/^[a-zA-ZÀ-ÿ\s.,:'"-]+$/),
-      ],
+      validators: [Validators.required],
     }),
 
     publishedAt: new FormControl('', {
       nonNullable: true,
-      validators: [
-        Validators.required,
-        Validators.pattern(
-          /^(January|February|March|April|May|June|July|August|September|October|November|December)$/,
-        ),
-      ],
+      validators: [Validators.required],
     }),
   });
 

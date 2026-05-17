@@ -12,6 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { COUNTRIES } from '../../../../shared/constants/countries';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-author-form',
@@ -22,7 +24,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatProgressSpinner
+    MatProgressSpinner,
+    MatSelectModule
   ],
   templateUrl: './author-form.html',
   styleUrl: './author-form.scss',
@@ -34,6 +37,8 @@ export class AuthorForm {
       this.form.patchValue(this.author);
     }
   }
+
+  countries = COUNTRIES;
 
   private authorService = inject(AuthorsService);
 
@@ -59,10 +64,7 @@ export class AuthorForm {
     country: new FormControl('', {
       nonNullable: true,
       validators: [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(70),
-        Validators.pattern(/^[a-zA-ZÀ-ÿ\s.,;()'"-]+$/),
+        Validators.required
       ],
     }),
 

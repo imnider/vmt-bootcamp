@@ -57,37 +57,47 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Autor</mat-label>
-        <input matInput formControlName="author" placeholder="Autor del libro" />
+
+        <mat-select formControlName="author" [disabled]="authorsLoading()">
+          @if (authorsLoading()) {
+            <mat-option disabled>Cargando autores...</mat-option>
+          }
+
+          @if (authorsError()) {
+            <mat-option disabled>
+              {{ authorsError() }}
+            </mat-option>
+          }
+
+          @for (author of authors(); track author.id) {
+            <mat-option [value]="author.id">
+              {{ author.name }}
+            </mat-option>
+          }
+        </mat-select>
+
         <mat-icon matSuffix>person</mat-icon>
 
         @if (form.controls.author.hasError('required')) {
           <mat-error>El autor es obligatorio</mat-error>
         }
-
-        @if (form.controls.author.hasError('minlength')) {
-          <mat-error>Debe tener al menos 3 caracteres</mat-error>
-        }
-
-        @if (form.controls.author.hasError('maxlength')) {
-          <mat-error>No puede superar los 60 caracteres</mat-error>
-        }
-
-        @if (form.controls.author.hasError('pattern')) {
-          <mat-error>El nombre del autor contiene caracteres inválidos</mat-error>
-        }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Mes de publicación</mat-label>
-        <input matInput formControlName="publishedAt" placeholder="Ej: January" />
+
+        <mat-select formControlName="publishedAt">
+          @for (month of months; track month) {
+            <mat-option [value]="month">
+              {{ month }}
+            </mat-option>
+          }
+        </mat-select>
+
         <mat-icon matSuffix>event</mat-icon>
 
         @if (form.controls.publishedAt.hasError('required')) {
           <mat-error>El mes es obligatorio</mat-error>
-        }
-
-        @if (form.controls.publishedAt.hasError('pattern')) {
-          <mat-error>Debe ser un mes válido (Ej: January, February...)</mat-error>
         }
       </mat-form-field>
 
