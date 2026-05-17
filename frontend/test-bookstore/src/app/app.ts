@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/header/header';
-import { FooterComponent } from './shared/footer/footer';
-import { NavbarComponent } from './shared/navbar/navbar';
+import { HeaderComponent } from './shared/pages/header/header';
+import { FooterComponent } from './shared/pages/footer/footer';
+import { NavbarComponent } from './shared/pages/navbar/navbar';
 
 @Component({
   selector: 'app-root',

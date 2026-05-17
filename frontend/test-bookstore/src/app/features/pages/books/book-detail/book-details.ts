@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-bookdetails-component',
+  selector: 'app-book-detail',
   imports: [
     MatCardModule,
     MatButtonModule,
@@ -18,8 +18,8 @@ import { CommonModule } from '@angular/common';
     MatProgressSpinner,
     CommonModule
   ],
-  templateUrl: './bookdetails-component.html',
-  styleUrl: './bookdetails-component.scss',
+  templateUrl: './book-detail.html',
+  styleUrl: './book-detail.scss',
 })
 export class BookDetail {
 

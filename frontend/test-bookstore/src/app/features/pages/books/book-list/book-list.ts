@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { FormBookComponent } from '../form-book-component/form-book-component';
+import { FormBookComponent } from '../book-form/book-form';
 import { ConfirmElimination } from '../confirm-elimination/confirm-elimination';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BooksService } from '../../../services/books-service/books-service';
@@ -15,12 +15,12 @@ import { IBook } from '../../../interfaces/IBook';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-book-component',
+  selector: 'app-book-list',
   imports: [MatButtonModule, MatCardModule, MatDividerModule,
     MatProgressSpinnerModule, MatIconModule,
     FormsModule, MatDialogModule, CommonModule],
-  templateUrl: './book-component.html',
-  styleUrl: './book-component.scss',
+  templateUrl: './book-list.html',
+  styleUrl: './book-list.scss',
 })
 export class BookComponent implements OnInit {
   /**

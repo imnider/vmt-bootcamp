@@ -17,7 +17,7 @@ import { IAuthor } from '../../../interfaces/IAuthor';
 import { AuthorsService } from '../../../services/authors-service/authors-service';
 
 @Component({
-  selector: 'app-form-book-component',
+  selector: 'app-book-form',
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -28,8 +28,8 @@ import { AuthorsService } from '../../../services/authors-service/authors-servic
     MatProgressSpinner,
     MatSelectModule,
   ],
-  templateUrl: './form-book-component.html',
-  styleUrl: './form-book-component.scss',
+  templateUrl: './book-form.html',
+  styleUrl: './book-form.scss',
 })
 export class FormBookComponent {
   //verifica si libro tiene Ibook o null
