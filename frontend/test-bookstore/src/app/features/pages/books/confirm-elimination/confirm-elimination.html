@@ -1,15 +1,50 @@
-<div class="confirm-overlay">
-  <div class="confirm-dialog">
-    <div class="confirm-header">
-      <h2>Confirmar eliminación</h2>
+<mat-card appearance="outlined" class="delete-card">
+
+  <mat-card-header class="delete-header">
+    <div class="delete-icon-circle">
+      <mat-icon class="delete-icon">delete_forever</mat-icon>
     </div>
-    <div class="confirm-body">
-      <p>¿Seguro que deseas eliminar este libro?</p>
-      <p class="confirm-warning">Esta acción no se puede deshacer.</p>
+
+    <div>
+      <h2 class="delete-title">Eliminar libro</h2>
+      <p class="delete-subtitle">Esta acción no se puede deshacer</p>
     </div>
-    <div class="confirm-footer">
-      <button class="btn btn-cancel">Cancelar</button>
-      <button class="btn btn-delete">Eliminar</button>
-    </div>
-  </div>
-</div>
+  </mat-card-header>
+
+  <mat-card-content class="delete-content">
+
+    @if (loading()) {
+      <div class="loading-container">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      </div>
+    }
+
+    @if (!loading()) {
+      <div class="warning-box">
+        <mat-icon class="warning-icon">warning</mat-icon>
+
+        <div class="warning-text">
+          <span class="warning-title">Confirmar eliminación</span>
+
+          <span class="warning-message">
+            ¿Estás seguro de que quieres eliminar permanentemente este libro del sistema?
+          </span>
+        </div>
+      </div>
+    }
+
+  </mat-card-content>
+
+  <mat-card-actions class="delete-actions">
+    <button mat-stroked-button class="btn-cancel" (click)="sendCancel()" [disabled]="loading()">
+      <mat-icon>close</mat-icon>
+      Cancelar
+    </button>
+
+    <button mat-flat-button color="warn" class="btn-delete" (click)="sendConfirm()" [disabled]="loading()">
+      <mat-icon>delete</mat-icon>
+      Eliminar
+    </button>
+  </mat-card-actions>
+
+</mat-card>

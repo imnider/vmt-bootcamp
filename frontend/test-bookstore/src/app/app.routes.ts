@@ -14,7 +14,8 @@ export const routes: Routes = [
     },
     {
         path: 'books',
-        loadComponent: () => import('./features/pages/books/book-list/book-list').then(m => m.BookList)
+        loadChildren: () =>
+            import('./features/routes/book.route').then(m => m.booksRoute)
     }
     ,
     { path: '**', redirectTo: 'home' }

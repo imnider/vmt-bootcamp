@@ -30,7 +30,7 @@ export class BooksService {
     return this.http.put<IBook>(`${this.apiUrl}/books/${id}`, payload);
   }
 
-  DeleteBook(id: string){
-    this.http.delete(`${this.apiUrl}/books/${id}`);
+  DeleteBook(id: string): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/books/${id}`);
   }
 }

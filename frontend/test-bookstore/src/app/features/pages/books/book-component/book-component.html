@@ -1,11 +1,10 @@
 <div class="page">
-
   <div class="header">
-    <h1>Autores</h1>
+    <h1>Libros</h1>
 
     <button mat-fab extended color="primary" (click)="abrirFormulario()">
       <mat-icon>add</mat-icon>
-      Agregar autor
+      Nuevo libro
     </button>
   </div>
 
@@ -19,7 +18,7 @@
       [(ngModel)]="searchQuery"
       (focus)="searchFocused = true"
       (blur)="searchFocused = false"
-      placeholder="Buscar por nombre..."
+      placeholder="Buscar por título..."
       class="search-input"
     />
   </div>
@@ -30,49 +29,49 @@
     </div>
   }
 
-  @if (error()) {
+  @if (erroMessage()) {
     <mat-card appearance="outlined">
       <mat-card-content>
-        <p>{{ error() }}</p>
+        <p>{{ erroMessage() }}</p>
       </mat-card-content>
     </mat-card>
   }
 
-  @if (!loading() && !error()) {
+  @if (!loading() && !erroMessage()) {
     <div class="grid">
-      @for (
-        author of authorList().filter(a =>
-          a.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        track author.id
-      ) {
+      @for (book of books().filter(a =>
+          a.name.toLowerCase().includes(searchQuery.toLowerCase())); track book.id) {
         <mat-card appearance="outlined">
-
           <mat-card-header>
-            <mat-icon mat-card-avatar>person</mat-icon>
-            <mat-card-title>{{ author.name }}</mat-card-title>
-            <mat-card-subtitle>{{ author.country }}</mat-card-subtitle>
+            <mat-icon mat-card-avatar>menu_book</mat-icon>
+            <mat-card-title>{{ book.name }}</mat-card-title>
+            <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
           </mat-card-header>
 
           <mat-card-content>
-            <p><strong>Fecha de creación:</strong> {{ author.createdAt | date:'longDate' }}</p>
-            <p><strong>Teléfono:</strong> {{ author.phoneNumber }}</p>
+            <p>
+              <strong>Fecha de creación:</strong>
+              {{ book.createdAt | date:'longDate'}}
+            </p>
+            <p>
+              <strong>Publicado:</strong>
+              {{ book.publishedAt }}
+            </p>
           </mat-card-content>
 
           <mat-card-actions class="card-actions">
-            <button mat-icon-button (click)="verDetalle(author.id)">
+            <button mat-icon-button (click)="goToBookDetails(book.id)">
               <mat-icon class="icon-view">visibility</mat-icon>
             </button>
 
-            <button mat-icon-button (click)="abrirFormulario(author)">
+            <button mat-icon-button (click)="abrirFormulario(book)">
               <mat-icon class="icon-edit">edit</mat-icon>
             </button>
 
-            <button mat-icon-button (click)="confirmDelete(author)">
+            <button mat-icon-button (click)="confirmarEliminacion(book)">
               <mat-icon class="icon-delete">delete_forever</mat-icon>
             </button>
           </mat-card-actions>
-
         </mat-card>
       }
     </div>

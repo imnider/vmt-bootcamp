@@ -1,0 +1,139 @@
+<mat-card appearance="outlined" class="dialog-padding">
+  <mat-card-header class="form-header">
+    <div class="header-container">
+      <div class="icon-circle">
+        <mat-icon>
+          @if (isEdit()) {
+            edit
+          } @else {
+            menu_book
+          }
+        </mat-icon>
+      </div>
+
+      <div>
+        <mat-card-title class="title">
+          @if (isEdit()) {
+            Editar libro
+          } @else {
+            Crear libro
+          }
+        </mat-card-title>
+
+        <mat-card-subtitle class="subtitle">
+          @if (isEdit()) {
+            Actualiza la información del libro
+          } @else {
+            Agrega un nuevo libro al sistema
+          }
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardar()" class="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="name" placeholder="Título del libro" />
+        <mat-icon matSuffix>book</mat-icon>
+
+        @if (form.controls.name.hasError('required')) {
+          <mat-error>El título es obligatorio</mat-error>
+        }
+
+        @if (form.controls.name.hasError('minlength')) {
+          <mat-error>Debe tener al menos 3 caracteres</mat-error>
+        }
+
+        @if (form.controls.name.hasError('maxlength')) {
+          <mat-error>No puede superar los 80 caracteres</mat-error>
+        }
+
+        @if (form.controls.name.hasError('pattern')) {
+          <mat-error>El título contiene caracteres no válidos</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Autor</mat-label>
+        <input matInput formControlName="author" placeholder="Autor del libro" />
+        <mat-icon matSuffix>person</mat-icon>
+
+        @if (form.controls.author.hasError('required')) {
+          <mat-error>El autor es obligatorio</mat-error>
+        }
+
+        @if (form.controls.author.hasError('minlength')) {
+          <mat-error>Debe tener al menos 3 caracteres</mat-error>
+        }
+
+        @if (form.controls.author.hasError('maxlength')) {
+          <mat-error>No puede superar los 60 caracteres</mat-error>
+        }
+
+        @if (form.controls.author.hasError('pattern')) {
+          <mat-error>El nombre del autor contiene caracteres inválidos</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mes de publicación</mat-label>
+        <input matInput formControlName="publishedAt" placeholder="Ej: January" />
+        <mat-icon matSuffix>event</mat-icon>
+
+        @if (form.controls.publishedAt.hasError('required')) {
+          <mat-error>El mes es obligatorio</mat-error>
+        }
+
+        @if (form.controls.publishedAt.hasError('pattern')) {
+          <mat-error>Debe ser un mes válido (Ej: January, February...)</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-stroked-button type="button" (click)="cerrar()">
+          <mat-icon>close</mat-icon>
+          Cancelar
+        </button>
+
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          class="submit-btn"
+          [disabled]="form.invalid || loading()"
+        >
+          <span class="btn-content">
+            @if (loading()) {
+              <mat-progress-spinner mode="indeterminate" diameter="18"></mat-progress-spinner>
+              <span>
+                @if (isEdit()) {
+                  Actualizando...
+                } @else {
+                  Creando...
+                }
+              </span>
+            } @else {
+              <mat-icon>
+                @if (isEdit()) {
+                  edit
+                } @else {
+                  add
+                }
+              </mat-icon>
+
+              <span>
+                @if (isEdit()) {
+                  Actualizar
+                } @else {
+                  Crear
+                }
+              </span>
+            }
+          </span>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

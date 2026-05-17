@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-author-list',
@@ -23,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatProgressSpinner,
     FormsModule,
     MatFormFieldModule,
+    CommonModule
   ],
   templateUrl: './author-list.html',
   styleUrl: './author-list.scss',

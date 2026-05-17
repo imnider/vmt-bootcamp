@@ -3,57 +3,69 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IAuthor } from '../../../interfaces/IAuthor';
-import { AuthorsService } from '../../../services/authors-service/authors-service';
+import { IBook } from '../../../interfaces/IBook';
+import { BooksService } from '../../../services/books-service/books-service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-author-detail',
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatProgressSpinner, CommonModule],
-  templateUrl: './author-detail.html',
-  styleUrl: './author-detail.scss',
+  selector: 'app-bookdetails-component',
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinner,
+    CommonModule
+  ],
+  templateUrl: './bookdetails-component.html',
+  styleUrl: './bookdetails-component.scss',
 })
-export class AuthorDetail {
+export class BookDetail {
+
   loading = signal(false);
   error = signal<string | null>(null);
-  author = signal<IAuthor | null>(null);
+  book = signal<IBook | null>(null);
 
-  authorService = inject(AuthorsService);
+  //ingreso al servicio de libros y a la 
+  //libreria de rutas a traves de inject
+  bookService = inject(BooksService);
   route = inject(ActivatedRoute);
   router = inject(Router);
   snackBar = inject(MatSnackBar);
 
+  //activa el metodo para cargar el libro al 
+  //iniciar el componente OnInit
   ngOnInit() {
-    this.obtenerAutor();
+    this.obtenerLibro();
   }
 
-  obtenerAutor() {
+  obtenerLibro() {
     this.loading.set(true);
 
     const id = this.route.snapshot.paramMap.get('id');
 
     if (!id) return;
 
-    this.authorService.getByID(id).subscribe({
+    this.bookService.getBookById(id).subscribe({
       next: (data) => {
-        this.author.set(data);
+        this.book.set(data);
         this.loading.set(false);
       },
       error: () => {
-        this.snackBar.open('Error al cargar el autor', 'Cerrar', {
+        this.snackBar.open('Error al cargar el libro', 'Cerrar', {
           duration: 3000,
           horizontalPosition: 'right',
           verticalPosition: 'top',
         });
-        this.error.set(`Error al obtener el usuario con id: ${id}`);
+        this.error.set(`Error al obtener el libro con id: ${id}`);
         this.loading.set(false);
       },
     });
   }
 
+  //retorno a punto anterior en la navegacion
   volver() {
-    this.router.navigate(['/authors']);
+    this.router.navigate(['/books']);
   }
 }

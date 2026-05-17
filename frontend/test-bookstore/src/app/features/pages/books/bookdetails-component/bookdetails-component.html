@@ -19,39 +19,42 @@
 
   @if (!loading() && !error()) {
     <mat-card appearance="outlined" class="detail-card">
+
+      <!-- HEADER igual al de authors -->
       <div class="header">
         <div class="avatar">
-          <mat-icon>person</mat-icon>
+          <mat-icon>menu_book</mat-icon>
         </div>
 
         <div>
-          <h1>{{ author()?.name }}</h1>
-          <p>{{ author()?.country }}</p>
+          <h1>{{ book()?.name }}</h1>
+          <p>{{ book()?.author }}</p>
         </div>
       </div>
 
       <mat-card-content class="content">
+
         <div class="info-row">
-          <mat-icon class="icon-bagde">badge</mat-icon>
+          <mat-icon class="icon-badge">badge</mat-icon>
           <div>
-            <span class="label">ID del autor</span>
-            <span class="value">{{ author()?.id }}</span>
+            <span class="label">ID del libro</span>
+            <span class="value">{{ book()?.id }}</span>
           </div>
         </div>
 
         <div class="info-row">
-          <mat-icon class="icon-public">public</mat-icon>
+          <mat-icon class="icon-public">person</mat-icon>
           <div>
-            <span class="label">País</span>
-            <span class="value">{{ author()?.country }}</span>
+            <span class="label">Autor</span>
+            <span class="value">{{ book()?.author }}</span>
           </div>
         </div>
 
         <div class="info-row">
-          <mat-icon class="icon-phone">phone</mat-icon>
+          <mat-icon class="icon-phone">event</mat-icon>
           <div>
-            <span class="label">Número de teléfono</span>
-            <span class="value">{{ author()?.phoneNumber }}</span>
+            <span class="label">Publicado en</span>
+            <span class="value">{{ book()?.publishedAt }}</span>
           </div>
         </div>
 
@@ -59,9 +62,10 @@
           <mat-icon class="icon-calendar">calendar_today</mat-icon>
           <div>
             <span class="label">Fecha de creación</span>
-            <span class="value">{{ author()?.createdAt | date:'longDate' }}</span>
+            <span class="value">{{ book()?.createdAt | date:'longDate' }}</span>
           </div>
         </div>
+
       </mat-card-content>
 
       <mat-card-actions class="actions">
@@ -70,6 +74,7 @@
           Volver
         </button>
       </mat-card-actions>
+
     </mat-card>
   }
 </div>

@@ -1,0 +1,107 @@
+.page-container {
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.center-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.error-card {
+  width: 520px;
+  border-radius: 20px;
+}
+
+.error-content {
+  padding: 32px;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #d32f2f;
+}
+
+.detail-card {
+  width: 560px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.header {
+  padding: 32px;
+  background: linear-gradient(135deg, #1976d2, #233f93);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #eef1fa;
+}
+
+.label {
+  font-size: 13px;
+  color: #666;
+  display: block;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.icon-badge {
+  color: #233f93;
+}
+
+.icon-public {
+  color: #1f8ea2;
+}
+
+.icon-phone {
+  color: #1a2f6e;
+}
+
+.icon-calendar {
+  color: #156b7a;
+}
+
+.actions {
+  padding: 0 28px 28px 28px;
+}
