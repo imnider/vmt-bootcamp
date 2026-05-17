@@ -70,7 +70,7 @@
           }
 
           @for (author of authors(); track author.id) {
-            <mat-option [value]="author.id">
+            <mat-option [value]="author.name">
               {{ author.name }}
             </mat-option>
           }
