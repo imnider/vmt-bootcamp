@@ -1,0 +1,70 @@
+<div class="home-container">
+  <section class="hero-banner">
+    <div class="overlay">
+      <h1>Bienvenido a NovaMarket S.A</h1>
+      <p>Encuentra los mejores productos al mejor precio</p>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <h2>Productos Destacados</h2>
+
+    <div class="products-grid">
+      @for (product of featuredProducts; track product.id){
+        <mat-card class="product-card">
+        <img
+          mat-card-image
+          [src]="product.thumbnail"
+          [alt]="product.title"
+        >
+
+        <mat-card-content>
+          <h3>{{ product.title }}</h3>
+
+          <p class="brand">{{ product.brand }}</p>
+
+          <p class="description">
+            {{ product.description }}
+          </p>
+
+          <div class="rating-stock">
+            <span>⭐ {{ product.rating }}</span>
+            <span>Stock: {{ product.stock }}</span>
+          </div>
+
+          <div class="price-section">
+            <span class="price">
+              ${{ product.price }}
+            </span>
+
+            <span class="discount">
+              -{{ product.discountPercentage }}%
+            </span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      }
+    </div>
+  </section>
+
+  <section class="promotions">
+    <h2>Promociones</h2>
+
+    <div class="promo-grid">
+      <mat-card class="promo-card">
+        <h3>Hasta 50% OFF</h3>
+        <p>En productos seleccionados</p>
+      </mat-card>
+
+      <mat-card class="promo-card">
+        <h3>Envío Gratis</h3>
+        <p>En compras mayores a $100</p>
+      </mat-card>
+
+      <mat-card class="promo-card">
+        <h3>Ofertas Flash</h3>
+        <p>Descuentos por tiempo limitado</p>
+      </mat-card>
+    </div>
+  </section>
+</div>

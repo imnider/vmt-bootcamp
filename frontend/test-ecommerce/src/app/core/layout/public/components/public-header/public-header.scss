@@ -1,0 +1,26 @@
+.header-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  margin-right: 12px;
+}
+
+.system-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
