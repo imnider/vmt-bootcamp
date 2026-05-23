@@ -1,1 +1,35 @@
-<p>contact-us-component works!</p>
+<div class="page-container">
+  <div class="hero">
+    <h1>Contacto</h1>
+    <p>¿Tienes dudas o sugerencias? Escríbenos.</p>
+  </div>
+
+  <div class="contact-wrapper">
+    <form class="contact-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mensaje</mat-label>
+        <textarea matInput rows="5"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button class="send-button">Enviar mensaje</button>
+    </form>
+
+    <div class="info-card">
+      <h2>Información</h2>
+
+      <p><strong>Email:</strong> soporte@tienda.com</p>
+      <p><strong>Teléfono:</strong> +593 99 999 9999</p>
+      <p><strong>Horario:</strong> Lun - Vie</p>
+    </div>
+  </div>
+</div>

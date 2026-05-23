@@ -1,1 +1,11 @@
-<p>private-layout works!</p>
+<div class="private-layout">
+  <app-sidebar-component />
+
+  <div class="content-area">
+    <app-topbar-component />
+
+    <main class="page-content">
+      <router-outlet />
+    </main>
+  </div>
+</div>

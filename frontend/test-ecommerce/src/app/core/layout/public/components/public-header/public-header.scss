@@ -1,26 +1,47 @@
-.header-toolbar {
+.header {
+  background-color: #416788;
+  color: white;
   display: flex;
-  align-items: center;
-  padding: 0 16px;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 80px;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 15px;
+
+  img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 }
 
-.logo {
-  height: 40px;
-  width: 40px;
-  object-fit: contain;
-  margin-right: 12px;
-}
-
-.system-name {
-  font-size: 20px;
+button {
+  background-color: #81d2c7 !important;
+  color: #416788 !important;
   font-weight: 600;
-}
 
-.spacer {
-  flex: 1 1 auto;
+  border: none !important;
+
+  box-shadow: none !important;
+
+  .mat-mdc-button-persistent-ripple,
+  .mdc-button__ripple,
+  .mat-ripple-element {
+    display: none !important;
+  }
+
+  &:focus,
+  &:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }

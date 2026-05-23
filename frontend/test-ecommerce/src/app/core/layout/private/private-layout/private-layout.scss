@@ -1,0 +1,29 @@
+.private-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+
+  min-height: 100vh;
+
+  background-color: #e0e0e2;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.page-content {
+  flex: 1;
+
+  padding: 30px;
+
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .private-layout {
+    grid-template-columns: 1fr;
+  }
+}

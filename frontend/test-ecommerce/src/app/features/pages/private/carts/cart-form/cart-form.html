@@ -1,0 +1,39 @@
+<div class="cart-create-form">
+  <div class="dialog-header">
+    <div>
+      <h2>Nuevo carrito</h2>
+
+      <p>Ingresa el ID del usuario.</p>
+    </div>
+
+    <button mat-icon-button class="close-button" (click)="onCancel()">
+      <mat-icon> close </mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label> ID del usuario </mat-label>
+
+      <input matInput type="number" formControlName="userId" />
+
+      @if (form.get('userId')?.hasError('required') && form.get('userId')?.touched) {
+        <mat-error> El ID es obligatorio. </mat-error>
+      }
+
+      @if (form.get('userId')?.hasError('min') && form.get('userId')?.touched) {
+        <mat-error> El ID debe ser mayor a 0. </mat-error>
+      }
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-stroked-button type="button" class="cancel-button" (click)="onCancel()">
+        Cancelar
+      </button>
+
+      <button mat-raised-button type="submit" class="save-button" [disabled]="form.invalid">
+        Crear carrito
+      </button>
+    </div>
+  </form>
+</div>

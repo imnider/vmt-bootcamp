@@ -1,0 +1,55 @@
+.page-container {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    color: #416788;
+    font-size: 2.2rem;
+  }
+
+  p {
+    color: #666;
+  }
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.send-button {
+  background-color: #416788 !important;
+  color: white !important;
+  padding: 0.6rem;
+  border-radius: 8px;
+}
+
+.info-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+  h2 {
+    color: #416788;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+}

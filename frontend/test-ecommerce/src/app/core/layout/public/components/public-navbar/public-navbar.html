@@ -1,22 +1,27 @@
-<mat-toolbar color="primary" class="navbar">
+<nav class="navbar">
 
-  <span class="spacer"></span>
+  <div class="nav-container">
 
-  <nav class="nav-links">
-    <a mat-button routerLink="/home" routerLinkActive="active-link">
-      <span style="color: black">Home</span>
+    <a routerLink="/" routerLinkActive="active-link">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
     </a>
 
-    <a mat-button routerLink="/products" routerLinkActive="active-link">
-      <span style="color: black">Products</span>
+    <a routerLink="/products" routerLinkActive="active-link">
+      <mat-icon>inventory_2</mat-icon>
+      <span>Products</span>
     </a>
 
-    <a mat-button routerLink="/about" routerLinkActive="active-link">
-      <span style="color: black">About</span>
+    <a routerLink="/about" routerLinkActive="active-link">
+      <mat-icon>business</mat-icon>
+      <span>About</span>
     </a>
 
-    <a mat-button routerLink="/contact" routerLinkActive="active-link">
-      <span style="color: black">Contact</span>
+    <a routerLink="/contact" routerLinkActive="active-link">
+      <mat-icon>support_agent</mat-icon>
+      <span>Contact Us</span>
     </a>
-  </nav>
-</mat-toolbar>
+
+  </div>
+
+</nav>

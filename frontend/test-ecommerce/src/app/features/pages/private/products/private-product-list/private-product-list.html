@@ -1,0 +1,96 @@
+<div class="products-admin">
+  <div class="page-header">
+    <div>
+      <h1>Gestión de Productos</h1>
+
+      <p>Administra todos los productos registrados en Nova Market.</p>
+    </div>
+
+    <div class="header-actions">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label> Buscar producto </mat-label>
+
+        <input matInput [(ngModel)]="search" placeholder="Nombre, marca..." />
+
+        <mat-icon matSuffix> search </mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button class="add-button" (click)="openCreate()">
+        <mat-icon>add</mat-icon>
+
+        <span>Nuevo</span>
+      </button>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner diameter="50"></mat-spinner>
+
+      <p>Cargando productos...</p>
+    </div>
+  } @else if (error()) {
+    <div class="error-container">
+      <mat-icon>error</mat-icon>
+
+      <p>{{ error() }}</p>
+    </div>
+  } @else {
+    <div class="products-grid">
+      @for (
+        product of products().filter(
+          (product) =>
+            product.title.toLowerCase().includes(search.toLowerCase()) ||
+            product.brand.toLowerCase().includes(search.toLowerCase())
+        );
+        track product.id
+      ) {
+        <mat-card class="product-card">
+          <div class="image-container">
+            <img [src]="product.thumbnail" [alt]="product.title" />
+
+            <div class="discount-badge">-{{ product.discountPercentage }}%</div>
+          </div>
+
+          <mat-card-content>
+            <div class="product-top">
+              <span class="category">
+                {{ product.category }}
+              </span>
+
+              <span class="stock"> Stock: {{ product.stock }} </span>
+            </div>
+
+            <h2>
+              {{ product.title }}
+            </h2>
+
+            <p class="description">
+              {{ product.description }}
+            </p>
+
+            <div class="product-info">
+              <div class="price-section">
+                <span class="price"> ${{ product.price }} </span>
+
+                <span class="brand">
+                  {{ product.brand }}
+                </span>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-icon-button class="edit-button" (click)="openEdit(product)">
+              <mat-icon> edit </mat-icon>
+            </button>
+
+            <button mat-icon-button class="delete-button" (click)="openDelete(product)">
+              <mat-icon> delete </mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  }
+</div>

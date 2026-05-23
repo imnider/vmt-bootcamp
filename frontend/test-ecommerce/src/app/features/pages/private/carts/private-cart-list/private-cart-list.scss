@@ -1,0 +1,163 @@
+.cart-page {
+  padding: 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+
+  h1 {
+    margin: 0;
+    color: #416788;
+    font-size: 2rem;
+  }
+
+  p {
+    margin-top: 0.4rem;
+    color: #666;
+  }
+}
+
+.add-cart-button {
+  background-color: #416788 !important;
+  color: white !important;
+  border-radius: 14px !important;
+  padding-inline: 1rem;
+
+  mat-icon {
+    margin-right: 0.4rem;
+  }
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-card {
+  background-color: white;
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(65, 103, 136, 0.08);
+}
+
+.cart-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    margin: 0;
+    color: #416788;
+    font-size: 1.3rem;
+  }
+}
+
+.user-label {
+  color: #888;
+  font-size: 0.92rem;
+}
+
+.cart-total {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #416788;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background-color: #f8fafc;
+}
+
+.product-info {
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  p {
+    margin: 0.3rem 0 0;
+    color: #777;
+    font-size: 0.92rem;
+  }
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.action-button {
+  border: 1px solid rgba(65, 103, 136, 0.15);
+  background-color: white;
+
+  mat-icon {
+    color: #416788;
+  }
+}
+
+.more-products {
+  margin-top: 0.3rem;
+  color: #416788;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.7rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cart-stats {
+  display: flex;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.92rem;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.detail-button {
+  border-color: rgba(65, 103, 136, 0.2) !important;
+  color: #416788 !important;
+}
+
+.delete-button {
+  border-color: rgba(211, 47, 47, 0.2) !important;
+  color: #d32f2f !important;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.add-product-button {
+  border-color: rgba(65, 103, 136, 0.18) !important;
+  color: #416788 !important;
+}

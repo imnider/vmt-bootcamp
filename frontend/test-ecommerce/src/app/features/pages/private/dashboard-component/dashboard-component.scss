@@ -1,0 +1,86 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.welcome-card {
+  background-color: #7389ae;
+
+  color: white;
+
+  border-radius: 24px;
+
+  padding: 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0 0 10px 0;
+
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  mat-icon {
+    font-size: 70px;
+
+    width: 70px;
+    height: 70px;
+
+    color: #81d2c7;
+  }
+}
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 25px;
+}
+
+.stat-card {
+  padding: 30px;
+
+  border-radius: 20px !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 15px;
+
+  text-align: center;
+
+  mat-icon {
+    font-size: 42px;
+
+    width: 42px;
+    height: 42px;
+
+    color: #7389ae;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: 2rem;
+
+    color: #416788;
+  }
+
+  p {
+    margin: 0;
+
+    color: #777;
+  }
+}

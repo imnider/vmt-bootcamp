@@ -1,0 +1,61 @@
+.confirm-dialog {
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.dialog-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background-color: rgba(244, 67, 54, 0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+    color: #d32f2f;
+  }
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #416788;
+}
+
+p {
+  margin: 1rem 0 2rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+strong {
+  color: #416788;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cancel-button {
+  border-color: rgba(65, 103, 136, 0.25) !important;
+  color: #416788 !important;
+}
+
+.delete-button {
+  background-color: #d32f2f !important;
+  color: white !important;
+}
+
+.delete-button:hover {
+  background-color: #b71c1c !important;
+}

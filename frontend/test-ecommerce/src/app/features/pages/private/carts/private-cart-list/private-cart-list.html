@@ -1,0 +1,101 @@
+<div class="cart-page">
+  <div class="page-header">
+    <div>
+      <h1>Carritos</h1>
+
+      <p>Administra los carritos y los productos agregados por los usuarios.</p>
+    </div>
+
+    <button mat-raised-button class="add-cart-button" (click)="openCreateCart()">
+      <mat-icon>add_shopping_cart</mat-icon>
+
+      Nuevo carrito
+    </button>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner diameter="45"></mat-spinner>
+    </div>
+  } @else {
+    <div class="cart-list">
+      @for (cart of carts(); track cart.id) {
+        <div class="cart-card">
+          <div class="cart-top">
+            <div>
+              <h2>Carrito #{{ cart.id }}</h2>
+
+              <span class="user-label"> Usuario #{{ cart.userId }} </span>
+            </div>
+
+            <div class="cart-total">${{ cart.total }}</div>
+          </div>
+
+          <div class="products-list">
+            @for (product of cart.products.slice(0, 3); track product.id) {
+              <div class="product-item">
+                <div class="product-info">
+                  <h3>
+                    {{ product.title }}
+                  </h3>
+
+                  <p>{{ product.quantity }} x ${{ product.price }}</p>
+                </div>
+
+                <div class="product-actions">
+                  <button
+                    mat-icon-button
+                    class="action-button"
+                    (click)="removeProduct(cart, product.id)"
+                  >
+                    <mat-icon>remove</mat-icon>
+                  </button>
+
+                  <button
+                    mat-icon-button
+                    class="action-button"
+                    (click)="addProduct(cart, product.id)"
+                  >
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+            }
+
+            @if (cart.products.length > 3) {
+              <span class="more-products"> +{{ cart.products.length - 3 }} productos más </span>
+            }
+          </div>
+
+          <div class="cart-footer">
+            <div class="cart-stats">
+              <span> {{ cart.totalProducts }} productos </span>
+
+              <span> {{ cart.totalQuantity }} unidades </span>
+            </div>
+
+            <div class="footer-actions">
+              <button mat-stroked-button class="add-product-button" (click)="openAddProduct(cart)">
+                <mat-icon>add</mat-icon>
+
+                Producto
+              </button>
+
+              <button mat-stroked-button class="detail-button" (click)="openDetail(cart)">
+                <mat-icon>visibility</mat-icon>
+
+                Detalle
+              </button>
+
+              <button mat-stroked-button class="delete-button" (click)="deleteCart(cart)">
+                <mat-icon>delete</mat-icon>
+
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

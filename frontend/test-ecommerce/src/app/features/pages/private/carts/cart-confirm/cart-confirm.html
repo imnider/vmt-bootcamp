@@ -1,0 +1,18 @@
+<div class="confirm-dialog">
+  <div class="dialog-icon">
+    <mat-icon>delete</mat-icon>
+  </div>
+
+  <h2>Eliminar carrito</h2>
+
+  <p>
+    ¿Seguro que deseas eliminar el carrito <strong>#{{ data.id }}</strong
+    >?
+  </p>
+
+  <div class="dialog-actions">
+    <button mat-stroked-button class="cancel-button" (click)="cancel()">Cancelar</button>
+
+    <button mat-raised-button class="delete-button" (click)="confirm()">Eliminar</button>
+  </div>
+</div>

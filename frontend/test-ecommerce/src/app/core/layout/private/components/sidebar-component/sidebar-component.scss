@@ -1,0 +1,112 @@
+.sidebar {
+  height: 100vh;
+
+  position: sticky;
+  top: 0;
+  background-color: #416788;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px 20px;
+
+  gap: 35px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  img {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    object-fit: cover;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: 1.4rem;
+  }
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  flex: 1;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 14px 18px;
+
+    border-radius: 14px;
+
+    color: white;
+
+    transition:
+      background-color 0.25s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+
+      transform: translateX(4px);
+    }
+
+    mat-icon {
+      color: #81d2c7;
+    }
+  }
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.logout-button {
+  height: 50px;
+
+  border-radius: 14px !important;
+
+  background-color: #81d2c7 !important;
+
+  color: #416788 !important;
+
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  border: none !important;
+
+  box-shadow: none !important;
+
+  .mat-mdc-button-persistent-ripple,
+  .mdc-button__ripple,
+  .mat-ripple-element {
+    display: none !important;
+  }
+
+  &:focus,
+  &:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}

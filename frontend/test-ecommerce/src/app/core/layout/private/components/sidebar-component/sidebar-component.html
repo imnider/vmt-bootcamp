@@ -1,0 +1,33 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="/images/logo.png" alt="Nova Market" />
+
+    <h2>Nova Market</h2>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a routerLink="/admin/dashboard" routerLinkActive="active-link">
+      <mat-icon>dashboard</mat-icon>
+
+      <span>Dashboard</span>
+    </a>
+
+    <a routerLink="/admin/products" routerLinkActive="active-link">
+      <mat-icon>inventory_2</mat-icon>
+
+      <span>Products</span>
+    </a>
+
+    <a routerLink="/admin/carts" routerLinkActive="active-link">
+      <mat-icon>shopping_cart</mat-icon>
+
+      <span>Orders</span>
+    </a>
+  </nav>
+
+  <button mat-raised-button class="logout-button" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+
+    <span>Cerrar sesión</span>
+  </button>
+</aside>

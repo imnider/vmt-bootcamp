@@ -1,0 +1,86 @@
+@if (cart(); as cartData) {
+  <div class="cart-detail">
+    <div class="detail-header">
+      <div>
+        <button mat-icon-button class="back-button" (click)="goBack()">
+          <mat-icon> arrow_back </mat-icon>
+        </button>
+
+        <div>
+          <h1>Carrito #{{ cartData.id }}</h1>
+
+          <p>Usuario ID: {{ cartData.userId }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <span>Total Productos</span>
+
+        <strong>
+          {{ cartData.totalProducts }}
+        </strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Cantidad Total</span>
+
+        <strong>
+          {{ cartData.totalQuantity }}
+        </strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Total</span>
+
+        <strong>
+          {{ cartData.total | currency }}
+        </strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Total con descuento</span>
+
+        <strong>
+          {{ cartData.discountedTotal | currency }}
+        </strong>
+      </div>
+    </div>
+
+    <div class="products-list">
+      @for (product of cartData.products; track product.id) {
+        <div class="product-card">
+          <div class="product-info">
+            <h3>
+              {{ product.title }}
+            </h3>
+
+            <p>ID: {{ product.id }}</p>
+          </div>
+
+          <div class="product-meta">
+            <span>
+              Precio:
+              {{ product.price | currency }}
+            </span>
+
+            <span>
+              Cantidad:
+              {{ product.quantity }}
+            </span>
+
+            <span>
+              Descuento:
+              {{ product.discountPercentage }}%
+            </span>
+
+            <strong>
+              {{ product.total | currency }}
+            </strong>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+}

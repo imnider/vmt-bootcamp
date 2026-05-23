@@ -1,0 +1,53 @@
+.topbar {
+  height: 90px;
+
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  h1 {
+    margin: 0;
+
+    color: #416788;
+  }
+
+  p {
+    margin-top: 6px;
+
+    color: #777;
+  }
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  text-align: right;
+
+  h3 {
+    margin: 0;
+
+    color: #416788;
+  }
+
+  span {
+    color: #777;
+    font-size: 0.9rem;
+  }
+
+  img {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+}

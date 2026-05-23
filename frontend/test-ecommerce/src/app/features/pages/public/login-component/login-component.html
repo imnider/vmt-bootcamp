@@ -1,0 +1,112 @@
+<div class="login-page">
+  <!-- PANEL IZQUIERDO -->
+
+  <div class="login-branding">
+    <div class="branding-content">
+      <img src="/images/logo.png" alt="Nova Market Logo" />
+
+      <h1>Nova Market</h1>
+
+      <p>Tecnología, innovación y las mejores ofertas en un solo lugar.</p>
+
+      <div class="branding-features">
+        <div class="feature-item">
+          <mat-icon>inventory_2</mat-icon>
+
+          <span>+500 productos disponibles</span>
+        </div>
+
+        <div class="feature-item">
+          <mat-icon>local_shipping</mat-icon>
+
+          <span>Envíos rápidos y seguros</span>
+        </div>
+
+        <div class="feature-item">
+          <mat-icon>verified</mat-icon>
+
+          <span>Productos garantizados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+
+  <div class="login-container">
+    <mat-card class="login-card">
+      <div class="login-header">
+        <h2>Iniciar Sesión</h2>
+
+        <p>Ingresa tus credenciales para continuar</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- USERNAME -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+
+          <input matInput formControlName="username" placeholder="Ingresa tu usuario" />
+
+          <mat-icon matSuffix> person </mat-icon>
+
+          @if (form.get('username')?.invalid && form.get('username')?.touched) {
+            <mat-error> El usuario es obligatorio. </mat-error>
+          }
+        </mat-form-field>
+
+        <!-- PASSWORD -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+
+          <input
+            matInput
+            formControlName="password"
+            [type]="showPass() ? 'text' : 'password'"
+            placeholder="Ingresa tu contraseña"
+          />
+
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            class="password-toggle"
+            (click)="showPass.set(!showPass())"
+          >
+            <mat-icon>
+              {{ showPass() ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+
+          @if (form.get('password')?.invalid && form.get('password')?.touched) {
+            <mat-error> La contraseña es obligatoria. </mat-error>
+          }
+        </mat-form-field>
+
+        <!-- ERROR -->
+
+        @if (error()) {
+          <div class="error-message">
+            <mat-icon>error</mat-icon>
+
+            <span>
+              {{ error() }}
+            </span>
+          </div>
+        }
+
+        <!-- BUTTON -->
+
+        <button mat-raised-button type="submit" class="login-button" [disabled]="loading()">
+          @if (loading()) {
+            <mat-spinner diameter="22"></mat-spinner>
+          } @else {
+            <span>Iniciar Sesión</span>
+          }
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

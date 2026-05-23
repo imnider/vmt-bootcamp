@@ -1,32 +1,48 @@
+<div class="page-container">
+  <div class="header">
+    <h1>Catálogo de productos</h1>
+    <p>Explora todos los productos disponibles</p>
+  </div>
 
-<div class="products-grid">
-  @for (product of products(); track product.id) {
-
-    <mat-card class="product-card">
-
-      <img
-        mat-card-image
-        [src]="product.thumbnail"
-        [alt]="product.title">
-
-      <mat-card-content>
-
-        <h2 class="product-title">
-          {{ product.title }}
-        </h2>
-
-        <p class="product-category">
-          {{ product.category }}
-        </p>
-
-        <p class="product-price">
-          ${{ product.price }}
-        </p>
-
-      </mat-card-content>
-
-    </mat-card>
-
+  @if (loading()) {
+    <div class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
   }
 
+  @if (error()) {
+    <div class="error">
+      {{ error() }}
+    </div>
+  }
+
+  <div class="grid">
+    @for (product of products(); track product.id) {
+      <div class="card">
+        <div class="image">
+          <img [src]="product.thumbnail" [alt]="product.title" />
+        </div>
+
+        <div class="body">
+          <h2 class="title">{{ product.title }}</h2>
+
+          <div class="tags">
+            <span class="tag brand">{{ product.brand }}</span>
+            <span class="tag category">{{ product.category }}</span>
+          </div>
+
+          <div class="bottom">
+            <div class="price">${{ product.price }}</div>
+
+            <div class="rating">
+              <mat-icon class="star-icon">star</mat-icon>
+              <span>{{ product.rating }}</span>
+            </div>
+          </div>
+
+          <div class="discount">-{{ product.discountPercentage }}% OFF</div>
+        </div>
+      </div>
+    }
+  </div>
 </div>

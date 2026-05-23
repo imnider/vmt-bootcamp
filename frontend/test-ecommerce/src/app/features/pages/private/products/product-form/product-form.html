@@ -1,0 +1,174 @@
+<div class="product-form">
+  <div class="dialog-header">
+    <div>
+      <h2>
+        @if (isEdit) {
+          Editar Producto
+        } @else {
+          Nuevo Producto
+        }
+      </h2>
+
+      <p>Completa la información del producto.</p>
+    </div>
+
+    <button mat-icon-button class="close-button" (click)="onCancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Título</mat-label>
+
+        <input matInput formControlName="title" />
+
+        @if (form.controls.title.touched && form.controls.title.hasError('required')) {
+          <mat-error> El título es obligatorio. </mat-error>
+        }
+
+        @if (form.controls.title.touched && form.controls.title.hasError('minlength')) {
+          <mat-error> El título debe tener al menos 3 caracteres. </mat-error>
+        }
+
+        @if (form.controls.title.touched && form.controls.title.hasError('maxlength')) {
+          <mat-error> El título es demasiado largo. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>SKU</mat-label>
+
+        <input matInput formControlName="sku" autocomplete="off" spellcheck="false" />
+
+        @if (form.controls.sku.touched && form.controls.sku.hasError('required')) {
+          <mat-error> El SKU es obligatorio. </mat-error>
+        }
+
+        @if (form.controls.sku.touched && form.controls.sku.hasError('pattern')) {
+          <mat-error> El SKU solo puede contener letras, números y guiones. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Marca</mat-label>
+
+        <mat-select formControlName="brand">
+          @for (brand of brands; track brand) {
+            <mat-option [value]="brand">
+              {{ brand }}
+            </mat-option>
+          }
+        </mat-select>
+
+        @if (form.controls.brand.touched && form.controls.brand.hasError('required')) {
+          <mat-error> La marca es obligatoria. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Categoría</mat-label>
+
+        <mat-select formControlName="category">
+          @for (category of categories; track category) {
+            <mat-option [value]="category">
+              {{ category }}
+            </mat-option>
+          }
+        </mat-select>
+
+        @if (form.controls.category.touched && form.controls.category.hasError('required')) {
+          <mat-error> La categoría es obligatoria. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Precio</mat-label>
+
+        <input matInput type="number" formControlName="price" />
+
+        @if (form.controls.price.touched && form.controls.price.hasError('required')) {
+          <mat-error> El precio es obligatorio. </mat-error>
+        }
+
+        @if (form.controls.price.touched && form.controls.price.hasError('min')) {
+          <mat-error> El precio debe ser mayor a 0. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Descuento %</mat-label>
+
+        <input matInput type="number" formControlName="discountPercentage" />
+
+        @if (
+          form.controls.discountPercentage.touched &&
+          form.controls.discountPercentage.hasError('required')
+        ) {
+          <mat-error> El descuento es obligatorio. </mat-error>
+        }
+
+        @if (
+          form.controls.discountPercentage.touched &&
+          form.controls.discountPercentage.hasError('min')
+        ) {
+          <mat-error> El descuento no puede ser negativo. </mat-error>
+        }
+
+        @if (
+          form.controls.discountPercentage.touched &&
+          form.controls.discountPercentage.hasError('max')
+        ) {
+          <mat-error> El descuento no puede superar el 100%. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Stock</mat-label>
+
+        <input matInput type="number" formControlName="stock" />
+
+        @if (form.controls.stock.touched && form.controls.stock.hasError('required')) {
+          <mat-error> El stock es obligatorio. </mat-error>
+        }
+
+        @if (form.controls.stock.touched && form.controls.stock.hasError('min')) {
+          <mat-error> El stock no puede ser negativo. </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descripción</mat-label>
+
+      <textarea matInput rows="5" formControlName="description"></textarea>
+
+      @if (form.controls.description.touched && form.controls.description.hasError('required')) {
+        <mat-error> La descripción es obligatoria. </mat-error>
+      }
+
+      @if (form.controls.description.touched && form.controls.description.hasError('minlength')) {
+        <mat-error> La descripción debe tener al menos 10 caracteres. </mat-error>
+      }
+
+      @if (form.controls.description.touched && form.controls.description.hasError('maxlength')) {
+        <mat-error> La descripción es demasiado larga. </mat-error>
+      }
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-stroked-button type="button" class="cancel-button" (click)="onCancel()">
+        Cancelar
+      </button>
+
+      <button mat-raised-button type="submit" class="save-button" [disabled]="form.invalid">
+        @if (isEdit) {
+          Guardar Cambios
+        } @else {
+          Crear Producto
+        }
+      </button>
+    </div>
+  </form>
+</div>

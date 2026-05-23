@@ -1,1 +1,37 @@
-<p>dashboard-component works!</p>
+<div class="dashboard">
+  <div class="welcome-card">
+    <div>
+      <h1>Bienvenido, {{ auth.user() || 'Administrador' }}</h1>
+
+      <p>Gestiona productos, usuarios y órdenes desde el panel administrativo.</p>
+    </div>
+
+    <mat-icon> admin_panel_settings </mat-icon>
+  </div>
+
+  <div class="stats-grid">
+    <mat-card class="stat-card">
+      <mat-icon>inventory_2</mat-icon>
+
+      <h2>542</h2>
+
+      <p>Productos</p>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-icon>shopping_cart</mat-icon>
+
+      <h2>128</h2>
+
+      <p>Órdenes</p>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-icon>groups</mat-icon>
+
+      <h2>74</h2>
+
+      <p>Usuarios</p>
+    </mat-card>
+  </div>
+</div>

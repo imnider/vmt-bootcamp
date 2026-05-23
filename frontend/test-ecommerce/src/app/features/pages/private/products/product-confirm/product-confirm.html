@@ -1,0 +1,18 @@
+<div class="confirm-dialog">
+  <div class="dialog-icon">
+    <mat-icon> delete </mat-icon>
+  </div>
+
+  <h2>Eliminar producto</h2>
+
+  <p>
+    ¿Seguro que deseas eliminar <strong>{{ data.title }}</strong
+    >?
+  </p>
+
+  <div class="dialog-actions">
+    <button mat-stroked-button class="cancel-button" (click)="onCancel()">Cancelar</button>
+
+    <button mat-raised-button class="delete-button" (click)="onConfirm()">Eliminar</button>
+  </div>
+</div>
